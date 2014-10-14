@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/InternetShop.css")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left" style ="margin-left:50px">
+                <img src ="../Images/logo.png" no-repeat" />
+            </div>
+            <div class="float-right">
+                <section id ="cart">
+                    @{ Html.RenderAction("CartInfo", "Products"); }
+                </section>
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+                <nav>
+                    <ul id="menu" style ="background-color:#ffa127; margin-top: 60px ">
+                        <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Оплата и доставка", "About", "Home")</li>
+                        <li>@Html.ActionLink("О нас", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Магазин", "List", "Products")</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div id="body">
+
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+                             @RenderSection("LeftPanel", false)
+            <div style="background-color:#dddddd; min-height:400px; min-width:380px; max-width:3800px;  padding-left:20px; margin-top:auto">
+                @RenderBody()
+            </div>
+             @RenderSection("RightPanel", false)
+        </section>
+    </div>
+        <footer>
+        <div class="content-wrapper">
+            <div style ="text-align:center">
+                <p>&copy; @DateTime.Now.Year - Alpenglow. Internet-shop</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

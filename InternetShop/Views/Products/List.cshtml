@@ -1,0 +1,46 @@
+﻿@using InternetShop.Models.Shop.Entities
+@model InternetShop.Models.Shop.PageableData<Product>
+
+@{
+    ViewBag.Title = "Товары";
+    var categoryList = (IEnumerable<Category>)ViewBag.CategoryList;
+}
+
+@section LeftPanel {
+    @{Html.RenderAction("Categories", new { ThisCategory = ViewBag.CategoryId });}
+}
+
+<div style="text-align: center">
+    @foreach (var product in Model.List)
+    {
+        if (product.Id % 4 == 0)
+        {<br />}
+        <div style="width: 180px; display: inline-block; border: 1px solid #333; margin: 30px 30px 0 0; padding:10px; background-color:white">
+            <img src='@Url.Action("Image", "Products", new { ProductId = product.Id })'/>
+            <hr />
+            @product.Name
+            <br />
+           <h3>@product.Price.ToString("N0")  UAH</h3> 
+        <br />
+            @product.Category.Name
+            <br />
+            @using (Html.BeginForm("AddToCart", "Products")) {
+                @Html.TextBox("kolich", null, new{style="width: 20px;"})
+                @Html.Hidden("ProductId", product.Id)
+                <input type="submit" value="Заказать" class="ui-button"/>
+            }
+        </div> 
+    }
+    <br />
+
+
+
+    <br />
+    <h3>
+        @Html.ActionLink("<<", "List", "Products", new { Page = ViewBag.PrevPage, CategoryId = ViewBag.CategoryId }, null)
+        @Model.PageNo / @Model.CountPage
+        @Html.ActionLink(">>", "List", "Products", new { Page = ViewBag.NextPage, CategoryId = ViewBag.CategoryId }, null)
+
+    </h3>
+</div>
+

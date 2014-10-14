@@ -1,0 +1,7 @@
+﻿td.priceCell {
+    text-align: right;
+}
+tr:nth-child(even) {background: lightgray}
+th {
+    background: silver
+}

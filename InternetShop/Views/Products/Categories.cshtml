@@ -1,0 +1,22 @@
+﻿@using InternetShop.Models.Shop.Entities
+@model System.Data.Entity.DbSet<InternetShop.Models.Shop.Entities.Category>
+
+<div style="background-color: #ffa127;  width: 198px; height: 400px; float: left; margin-top: 20px; margin-right:30px">
+    <h2 style="margin-left: 15px">Категории</h2>
+    <ul>
+        @foreach (var category in Model)
+        {
+            if (ViewBag.ThisCategory == category.Id)
+            {
+            <li style="background-color: #ffb65e; padding: 5px; list-style: none">
+                @Html.ActionLink(category.Name, "List", "Products", new { Page = 1, categoryId = category.Id }, null)
+            </li>}
+            else
+            { <li style="padding: 5px;">
+            @Html.ActionLink(category.Name, "List", "Products", new { Page = 1, categoryId = category.Id }, null)
+        </li>}
+            }
+        <li> @Html.ActionLink("Все товары", "List", "Products", new { Page = 1 }, null)</li>
+    </ul>
+
+</div>
