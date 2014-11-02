@@ -1,4 +1,4 @@
-﻿@model InternetShop.Models.Shop.Cart
+﻿@model InternetShop.Models.Shop.Entities.Cart
 
 
    
@@ -9,7 +9,7 @@
             </td>
        </tr>
        <tr>
-        <td style="background-color:white">  <h3>@Html.ActionLink("В корзине "+ @Model.countOfProd +" товаров", "Cart", "Products")</h3></td> 
+        <td style="background-color:white">  <h3>@Html.ActionLink("В корзине "+ @Model.CountOfProd +" товаров", "Cart", "Orders")</h3></td> 
        </tr>
    </table>
      

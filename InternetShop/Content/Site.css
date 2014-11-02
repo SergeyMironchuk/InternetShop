@@ -10,8 +10,10 @@ body {
     color: #333;
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0;
+    width: 1280px;
 }
 
 a {

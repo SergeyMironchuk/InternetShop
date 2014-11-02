@@ -7,65 +7,65 @@
     <meta name="viewport" content="width=device-width" />
 
     @Styles.Render("~/Content/Site.css")
-    @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/InternetShop.css")
+    @Styles.Render("~/Content/themes/base/jquery.ui.all.css")
+
+    @*@Scripts.Render("~/bundles/modernizr")*@
+    <script type="text/javascript" src='@Url.Content("~/Scripts/jquery-1.8.2.min.js")'></script>
+    <script type="text/javascript" src='@Url.Content("~/Scripts/jquery-ui-1.8.24.min.js")'></script>
 </head>
 <body>
     <header>
         <div class="content-wrapper">
-            <div class="float-left" style ="margin-left:50px; margin-top:20px; margin-right:-50px ">
-                <img width="350px" src ="../Images/logo.png" no-repeat" />
+            <div class="float-left" style="margin-left: 50px; margin-top: 20px; margin-right: -50px">
+                <img width="350px" src="../Images/logo.png" />
             </div>
-            <div style="display:inline-block">
-                    <p>Магазин туристического снаряжения</p>
-                             <p>&nbsp &nbsp г. Днепропетровск, просп. К.Маркса, 24</p>
-                <p>&nbsp &nbsp  &nbsp &nbsp тел: +3 (095) 345-23-56</p>
-                </div>
+            <div style="display: inline-block">
+                <p>Магазин туристического снаряжения</p>
+                <p>&nbsp; &nbsp; г. Днепропетровск, просп. К.Маркса, 24</p>
+                <p>&nbsp;&nbsp; &nbsp;&nbsp; тел: +3 (095) 345-23-56</p>
+            </div>
             <div class="float-right">
-                              
-                <section id ="cart">
-                    @{ Html.RenderAction("CartInfo", "Products"); }
+
+                <section id="cart">
+                    @{ Html.RenderAction("CartInfo", "Orders"); }
                 </section>
                 <section id="login">
                     @Html.Partial("_LoginPartial")
                 </section>
- </div>
+            </div>
         </div>
-                </header>
-    <div style="float:right">
+    </header>
+    <div style="float: right">
         <nav>
-                    <ul id="menu" style ="background: url('../Images/line.png') no-repeat; margin-top: 10px ; margin-bottom:0px; min-width:800px; padding-right:30px ">
-                        <li>@Html.ActionLink("Главная", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Оплата и доставка", "About", "Home")</li>
-                        <li>@Html.ActionLink("О нас", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Магазин", "List", "Products")</li>
-                    </ul>
-                </nav>
-           
+            <ul id="menu" style="background: url('../Images/line.png') no-repeat; margin-top: 10px; margin-bottom: 0px; min-width: 800px; padding-right: 30px">
+                <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                <li>@Html.ActionLink("Оплата и доставка", "About", "Home")</li>
+                <li>@Html.ActionLink("О нас", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Магазин", "List", "Products")</li>
+            </ul>
+        </nav>
+
     </div>
-                
-    
 
     <div id="body">
-
         @RenderSection("featured", required: false)
         <section class="content-wrapper main-content clear-fix">
-                             @RenderSection("LeftPanel", false)
-            <div style="background-color:#dddddd; min-height:400px; min-width:380px; max-width:3800px;  padding:20px; margin:10px 10px 10px 10px">
+            @RenderSection("LeftPanel", false)
+            <div style="background-color: #dddddd; min-height: 400px; min-width: 380px; max-width: 3800px; padding: 20px; margin: 10px 10px 10px 10px">
                 @RenderBody()
             </div>
-             @RenderSection("RightPanel", false)
+            @RenderSection("RightPanel", false)
         </section>
     </div>
-        <footer>
+    <footer>
         <div class="content-wrapper">
-            <div style ="text-align:center">
+            <div style="text-align: center">
                 <p>&copy; @DateTime.Now.Year - Alpenglow. Internet-shop</p>
             </div>
         </div>
     </footer>
 
-    @Scripts.Render("~/bundles/jquery")
-       @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
 </body>
 </html>

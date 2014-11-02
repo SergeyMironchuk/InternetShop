@@ -187,17 +187,18 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\Shop\Cart.cs" />
+    <Compile Include="Models\Shop\Entities\Cart.cs" />
     <Compile Include="Models\Shop\Entities\Category.cs" />
+    <Compile Include="Models\Shop\Entities\OrderLine.cs" />
     <Compile Include="Models\Shop\Entities\Person.cs" />
     <Compile Include="Models\Shop\Entities\Product.cs" />
-    <Compile Include="Models\Shop\OrderLine.cs" />
     <Compile Include="Models\Shop\PageableData.cs" />
     <Compile Include="Models\Shop\ShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -332,8 +333,9 @@
     <Content Include="Views\Products\List.cshtml" />
     <Content Include="Views\Products\Categories.cshtml" />
     <Content Include="Views\Products\Sort.cshtml" />
-    <Content Include="Views\Products\CartInfo.cshtml" />
-    <Content Include="Views\Products\Cart.cshtml" />
+    <Content Include="Views\Orders\CartInfo.cshtml" />
+    <Content Include="Views\Orders\Cart.cshtml" />
+    <Content Include="Views\Orders\AddOrder.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

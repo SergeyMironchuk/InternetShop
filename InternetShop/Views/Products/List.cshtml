@@ -25,7 +25,7 @@
             @product.Category.Name
             <br />
             
-            @using (Html.BeginForm("AddToCart", "Products"))
+            @using (Html.BeginForm("AddToCart", "Orders"))
             {
            <p>Количество:    @Html.TextBox("kolich", 1, new { style = "width: 30px; border: 1px solid #808080; " })</p> 
                 @Html.Hidden("ProductId", product.Id);
