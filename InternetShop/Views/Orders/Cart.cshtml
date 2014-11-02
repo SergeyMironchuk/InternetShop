@@ -1,0 +1,35 @@
+﻿@model InternetShop.Models.Shop.Entities.Cart
+@{
+    ViewBag.Title = "Корзина";
+}
+<script type="text/javascript">
+    $(function() {
+        $("#Cart a").button();
+    })
+</script>
+<div id="Cart">
+    <table>
+        <tr>
+            <td>Товар</td>
+            <td>Количество</td>
+            <td>Цена</td>
+            <td>Стоимость</td>
+        </tr>
+
+        @foreach (var line in Model.OrderLines)
+        { 
+            <tr>
+                <td>@line.Product.Name</td>
+                <td class="priceCell">@line.Kolich</td>
+                <td class="priceCell">@line.Product.Price.ToString("N2")</td>
+                <td class="priceCell">@line.OrderLineSum.ToString("N2")</td>
+            </tr>
+
+        }
+        <td colspan="3" style="text-align: right;"><b> Сумма</b></td>
+        <td class="priceCell"><b>@Model.OrderSum.ToString("N2")</b></td>
+    </table>
+    <br/>
+    @Html.ActionLink("Оформить заказ", "AddOrder", "Orders")
+</div>
+

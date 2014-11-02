@@ -1,0 +1,27 @@
+﻿@model InternetShop.Models.Shop.Entities.Person
+@{
+    ViewBag.Title = "CreateOrder";
+}
+<script type="text/javascript">
+    $(function () {
+        $("input[type='submit']").button();
+    })
+</script>
+
+@using (Html.BeginForm())
+{
+ @Html.HiddenFor(m => m.UserName)
+    <p>
+        @Html.LabelFor(m => m.Name)    @Html.TextBoxFor(m => m.Name, new { style = "width: 150px; border: 1px solid #808080; " })
+        @Html.ValidationMessageFor(m => m.Name)
+    </p> 
+
+    <p>@Html.LabelFor(m => m.Surname)    @Html.TextBoxFor(m => m.Surname, new { style = "width: 150px; border: 1px solid #808080; " })</p> 
+
+    <p>@Html.LabelFor(m => m.Phone)    @Html.TextBoxFor(m => m.Phone, new { style = "width: 150px; border: 1px solid #808080; " })
+        @Html.ValidationMessageFor(m => m.Phone)
+    </p> 
+
+    <input type="submit" value="Оформить заказ" class="ui-button" />
+              
+}
