@@ -1,2 +1,21 @@
 ﻿@model InternetShop.Models.Shop.Cart
-<h3>В корзине @Model.OrderLines.Count товаров</h3>
+
+
+   
+   <table>
+       <tr>
+            <td style ="text-align:center">  
+            <img src ="../Images/cart.png"  style =" width:80px; " /> 
+            </td>
+       </tr>
+       <tr>
+        <td style="background-color:white">  <h3>@Html.ActionLink("В корзине "+ @Model.countOfProd +" товаров", "Cart", "Products")</h3></td> 
+       </tr>
+   </table>
+     
+
+ 
+
+   
+
+

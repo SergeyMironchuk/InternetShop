@@ -70,12 +70,29 @@ namespace InternetShop.Controllers
             var product = context.Products.FirstOrDefault(p => p.Id==productId);
             var cart = GetCart();
             cart.OrderLines.Add(new OrderLine { Kolich = kolich, Product = product });
+            cart.countOfProd = cart.countOfProd + kolich;
             return RedirectToAction("List");
         }
+
+        // GET: /Products/CartInfo
 
         public ActionResult CartInfo()
         {
             return PartialView(GetCart());
+        }
+
+        public ActionResult Cart()
+        {
+            return View(GetCart());
+        }
+
+        public ActionResult SendCart(string name, string surname, string phone, Cart cart)
+        {
+            var context = new Person();
+            
+              cart.OrderLines.Add(new OrderLine { Kolich = kolich, Product = product });
+            cart.countOfProd = cart.countOfProd + kolich;
+            return RedirectToAction("List");
         }
     }
 }

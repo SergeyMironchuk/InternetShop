@@ -195,6 +195,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Shop\Cart.cs" />
     <Compile Include="Models\Shop\Entities\Category.cs" />
+    <Compile Include="Models\Shop\Entities\Person.cs" />
     <Compile Include="Models\Shop\Entities\Product.cs" />
     <Compile Include="Models\Shop\OrderLine.cs" />
     <Compile Include="Models\Shop\PageableData.cs" />
@@ -261,11 +262,18 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\1_p.jpg" />
+    <Content Include="Images\cart.jpg" />
+    <Content Include="Images\cart.png" />
+    <Content Include="Images\line.png" />
     <Content Include="Images\logo.png" />
     <Content Include="App_Data\products\1.jpg" />
     <Content Include="App_Data\products\2.jpg" />
     <Content Include="App_Data\products\3.jpg" />
     <Content Include="App_Data\products\4.jpg" />
+    <Content Include="Images\page_one.jpg" />
+    <Content Include="Images\p_1.jpg" />
+    <Content Include="Images\p_1.png" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -325,6 +333,7 @@
     <Content Include="Views\Products\Categories.cshtml" />
     <Content Include="Views\Products\Sort.cshtml" />
     <Content Include="Views\Products\CartInfo.cshtml" />
+    <Content Include="Views\Products\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
