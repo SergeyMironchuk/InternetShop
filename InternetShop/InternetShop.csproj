@@ -197,6 +197,7 @@
     <Compile Include="Models\Shop\Entities\Cart.cs" />
     <Compile Include="Models\Shop\Entities\Category.cs" />
     <Compile Include="Models\Shop\Entities\OrderLine.cs" />
+    <Compile Include="Models\Shop\Entities\Order.cs" />
     <Compile Include="Models\Shop\Entities\Person.cs" />
     <Compile Include="Models\Shop\Entities\Product.cs" />
     <Compile Include="Models\Shop\PageableData.cs" />

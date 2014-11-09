@@ -79,9 +79,21 @@ namespace InternetShop.Controllers
                 }
                 return View(person);
             }
-
-            // TODO Извлечь данные пользователя из БД и обновить, при необходимости
-            // TODO Создать заказ и записать в БД
+            
+            var context = new ShopDbContext();
+            var personFromDB = context.Persons.FirstOrDefault(p => p.UserName == person.UserName);
+            personFromDB.Name = person.Name;
+            personFromDB.Surname = person.Surname;
+            personFromDB.Phone = person.Phone;
+            context.SaveChanges();
+                
+            var order = new Order();
+            order.Date = DateTime.Today;
+            order.Person = personFromDB;
+            order.OrderLines = GetCart().OrderLines;
+            context.Orders.Add(order);
+            context.SaveChanges();
+                          
             return RedirectToAction("List", "Products");
         }
     }

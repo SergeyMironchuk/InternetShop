@@ -25,11 +25,12 @@ namespace InternetShop.Models.Shop.Entities
         public List<KeyValuePair<string, string>> Validate()
         {
             var result = new List<KeyValuePair<string, string>>();
-            if (!Regex.IsMatch(Phone, PhoneRegex))
+            return result;
+            if (!string.IsNullOrEmpty(Phone) && !Regex.IsMatch(Phone, PhoneRegex))
             {
                 result.Add(new KeyValuePair<string, string>("Phone", "Не правильный формат телефонного номера"));
             }
-            return result;
+            
         }
     }
 }
