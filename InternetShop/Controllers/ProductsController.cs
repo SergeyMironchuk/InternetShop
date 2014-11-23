@@ -52,5 +52,13 @@ namespace InternetShop.Controllers
             }
         }
 
+        public ActionResult Sort(int? categoryId)
+        {
+            var context = new ShopDbContext();
+            var category = context.Categories;
+            ViewBag.ThisCategory = categoryId;
+            return PartialView(category);
+        }
+
     }
 }

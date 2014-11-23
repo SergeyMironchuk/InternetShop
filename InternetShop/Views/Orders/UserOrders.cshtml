@@ -1,0 +1,26 @@
+﻿@using InternetShop.Models.Shop.Entities
+@model IEnumerable<InternetShop.Models.Shop.Entities.Order>
+@{
+    ViewBag.Title = "UserOrders";
+   
+}
+
+<h2>UserOrders</h2>
+
+@foreach (var order in Model)
+{
+    <p>@order.id</p>
+    <p>@order.Person.UserName</p>
+      
+    <p>@order.Date</p> 
+        
+    foreach (var line in order.OrderLines)
+    {
+    <p>@line.Product.Name;</p> 
+    }
+    <p>@order.OrderSum</p>
+    /*@Html.ActionLink("Список продуктов", "UserOrderList", "Orders", new {order.id} )*/
+
+}
+
+

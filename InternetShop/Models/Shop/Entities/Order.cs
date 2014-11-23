@@ -10,7 +10,7 @@ namespace InternetShop.Models.Shop.Entities
     public class Order : Cart
     {
         public int id { get; set; }
-        public Person Person { get; set; }
+        public virtual Person Person { get; set; }
         public DateTime Date { get; set; }
     }
 }

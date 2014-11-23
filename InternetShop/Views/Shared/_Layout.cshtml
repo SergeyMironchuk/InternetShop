@@ -18,9 +18,9 @@
     <header>
         <div class="content-wrapper">
             <div class="float-left" style="margin-left: 50px; margin-top: 20px; margin-right: -50px">
-                <img width="350px" src="../Images/logo.png" />
+                <img width="250px" src="../Images/logo.png" />
             </div>
-            <div style="display: inline-block">
+            <div style="display: inline-block; margin-left:30px" >
                 <p>Магазин туристического снаряжения</p>
                 <p>&nbsp; &nbsp; г. Днепропетровск, просп. К.Маркса, 24</p>
                 <p>&nbsp;&nbsp; &nbsp;&nbsp; тел: +3 (095) 345-23-56</p>
@@ -38,7 +38,7 @@
     </header>
     <div style="float: right">
         <nav>
-            <ul id="menu" style="background: url('../Images/line.png') no-repeat; margin-top: 10px; margin-bottom: 0px; min-width: 800px; padding-right: 30px">
+            <ul id="menu" style="background: url('../Images/line.png') no-repeat; box-shadow: 11px 12px 21px -10px #000000;    margin-top: 10px; margin-bottom: 0px; min-width: 800px; padding-right: 30px">
                 <li>@Html.ActionLink("Главная", "Index", "Home")</li>
                 <li>@Html.ActionLink("Оплата и доставка", "About", "Home")</li>
                 <li>@Html.ActionLink("О нас", "Contact", "Home")</li>
@@ -49,14 +49,18 @@
     </div>
 
     <div id="body">
-        @RenderSection("featured", required: false)
-        <section class="content-wrapper main-content clear-fix">
-            @RenderSection("LeftPanel", false)
-            <div style="background-color: #dddddd; min-height: 400px; min-width: 380px; max-width: 3800px; padding: 20px; margin: 10px 10px 10px 10px">
+       
+      
+            <div style="display:inline-block">
+                @RenderSection("LeftPanel", false)
+            </div>
+            <div style="display:inline-block;  min-height: 375px; min-width: 380px; max-width: 3800px; padding: 20px; margin: 10px 10px 10px 10px">
                 @RenderBody()
             </div>
-            @RenderSection("RightPanel", false)
-        </section>
+            <div style="display:inline-block">
+                @RenderSection("RightPanel", false)
+            </div>
+            
     </div>
     <footer>
         <div class="content-wrapper">

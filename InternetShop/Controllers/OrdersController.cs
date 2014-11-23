@@ -44,6 +44,25 @@ namespace InternetShop.Controllers
             return View(GetCart());
         }
 
+        // GET: /Orders/UserOrders
+
+        [Authorize]
+        public ActionResult UserOrders()
+        {
+            var context = new ShopDbContext();
+            var userName = User.Identity.Name;
+            var orders = context.Orders.Where(p => p.Person.UserName == userName);
+            
+            // TODO Извлечь из БД список заказов текущего пользователя
+            return View(orders);
+        }
+
+         [Authorize]
+        public ActionResult UserOrderList(int OrderId)
+        { 
+             return View(); 
+         }
+
         public ActionResult SendCart(string name, string surname, string phone, Cart cart)
         {
             var context = new Person();
@@ -80,21 +99,33 @@ namespace InternetShop.Controllers
                 return View(person);
             }
             
-            var context = new ShopDbContext();
-            var personFromDB = context.Persons.FirstOrDefault(p => p.UserName == person.UserName);
+            var dbContext = new ShopDbContext();
+            var personFromDB = dbContext.Persons.FirstOrDefault(p => p.UserName == person.UserName);
             personFromDB.Name = person.Name;
             personFromDB.Surname = person.Surname;
             personFromDB.Phone = person.Phone;
-            context.SaveChanges();
+            //dbContext.SaveChanges();
                 
             var order = new Order();
             order.Date = DateTime.Today;
             order.Person = personFromDB;
-            order.OrderLines = GetCart().OrderLines;
-            context.Orders.Add(order);
-            context.SaveChanges();
-                          
-            return RedirectToAction("List", "Products");
+            dbContext.Orders.Add(order);
+            //dbContext.SaveChanges();
+
+            var cartOrderLines = GetCart().OrderLines;
+            foreach (var cartOrderLine in cartOrderLines)
+            {
+                order.OrderLines.Add(new OrderLine()
+                {
+                    Id = cartOrderLine.Id,
+                    Kolich = cartOrderLine.Kolich,
+                    Product = dbContext.Products.FirstOrDefault(p => p.Id == cartOrderLine.Product.Id)
+                });
+            }
+
+            dbContext.SaveChanges();
+
+            return RedirectToAction("UserOrders", "Orders");
         }
     }
 }

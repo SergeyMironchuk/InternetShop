@@ -6,7 +6,7 @@ namespace InternetShop.Models.Shop
 {
     public class PageableData<T> where T : class
     {
-        protected int ItemPerPageDefault = 5;
+        protected int ItemPerPageDefault = 6;
 
         /// <summary>
         /// Список выводимых объектов

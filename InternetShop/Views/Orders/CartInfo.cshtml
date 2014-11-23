@@ -2,7 +2,7 @@
 
 
    
-   <table>
+   <!--<table>
        <tr>
             <td style ="text-align:center">  
             <img src ="../Images/cart.png"  style =" width:80px; " /> 
@@ -11,9 +11,11 @@
        <tr>
         <td style="background-color:white">  <h3>@Html.ActionLink("В корзине "+ @Model.CountOfProd +" товаров", "Cart", "Orders")</h3></td> 
        </tr>
-   </table>
-     
+   </table>-->
 
+     
+<img src ="../Images/cart.png"  style =" width:80px; margin-left:30px; " /> 
+<p style="text-align:center">@Html.ActionLink("В корзине "+ @Model.CountOfProd +" товаров", "Cart", "Orders")</p>
  
 
    

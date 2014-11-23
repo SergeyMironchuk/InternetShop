@@ -9,25 +9,29 @@
 @section LeftPanel {
     @{Html.RenderAction("Categories", new { ThisCategory = ViewBag.CategoryId });}
 }
+    @section RightPanel {
+    @{Html.RenderAction("Sort", new { ThisCategory = ViewBag.CategoryId });}
+}
 
-<div style="text-align: center">
+
+<div style="text-align: left">
+    @{int temp = 0;}
     @foreach (var product in Model.List)
     {
-        if (product.Id % 4 == 0)
+        if (temp %3 == 0)
         {<br />}
-        <div style="width: 180px; display: inline-block; border: 1px solid #808080; margin: 30px 30px 0 0; padding: 10px; background-color: white">
+         temp++;
+        <div style="width: 180px; box-shadow: 0px 0px 13px -3px #000000; border-radius: 5px; display: inline-block; border: 1px solid #808080; margin: 30px 30px 0 0; padding: 10px; padding-left:15px; background-color: white">
             <img src='@Url.Action("Image", "Products", new { ProductId = product.Id })'/>
             <hr />
             @product.Name
             <br />
             <h3>@product.Price.ToString("N0")  UAH</h3>
-            <br />
-            @product.Category.Name
-            <br />
+            
             
             @using (Html.BeginForm("AddToCart", "Orders"))
             {
-           <p>Количество:    @Html.TextBox("kolich", 1, new { style = "width: 30px; border: 1px solid #808080; " })</p> 
+           <p>Количество:    @Html.TextBox("kolich", 1, new { style = "width: 30px;border-radius:5 px; border: 1px solid #808080; " })</p> 
                 @Html.Hidden("ProductId", product.Id);
                 <input type="submit" value="Заказать" class="ui-button" />
             }
@@ -36,13 +40,13 @@
     <br />
 
 
-
     <br />
-    <h3>
+    <h3 style="text-align:center">
         @Html.ActionLink("<<", "List", "Products", new { Page = ViewBag.PrevPage, CategoryId = ViewBag.CategoryId }, null)
         @Model.PageNo / @Model.CountPage
         @Html.ActionLink(">>", "List", "Products", new { Page = ViewBag.NextPage, CategoryId = ViewBag.CategoryId }, null)
 
     </h3>
 </div>
+
 

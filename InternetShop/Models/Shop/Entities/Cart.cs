@@ -5,7 +5,7 @@ namespace InternetShop.Models.Shop.Entities
 {
     public class Cart
     {
-        public List<OrderLine> OrderLines { get; set;}
+        public virtual List<OrderLine> OrderLines { get; set;}
 
         public int CountOfProd
         {
